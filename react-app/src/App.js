@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState("Please enter a word and click Search.");
 
   const dictionary = [
     { word: "React", meaning: "A JavaScript library for building user interfaces." },
@@ -30,7 +30,13 @@ const App = () => {
           placeholder="Search for a word..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ padding: "10px", fontSize: "16px", width: "300px", borderRadius: "5px", border: "1px solid #ccc" }}
+          style={{
+            padding: "10px",
+            fontSize: "16px",
+            width: "300px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+          }}
         />
         <button
           onClick={handleSearch}
@@ -49,8 +55,9 @@ const App = () => {
         </button>
       </div>
       <div style={{ marginTop: "20px", fontSize: "18px", textAlign: "left", display: "inline-block" }}>
-        <p><strong>Definition:</strong></p>
-        <p>{result}</p>
+        <p id="definition">
+          <strong>Definition:</strong> {result}
+        </p>
       </div>
     </div>
   );
