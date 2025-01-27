@@ -54,10 +54,11 @@ const App = () => {
         </button>
       </div>
       <div style={{ marginTop: "20px", fontSize: "18px", textAlign: "left", display: "inline-block" }}>
+        <p><strong>Definition:</strong></p>
         <p id="result-text">{result}</p>
       </div>
     </div>
   );
 };
 
-export default App;
+export default App
