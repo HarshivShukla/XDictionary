@@ -15,7 +15,7 @@ const App = () => {
       (entry) => entry.word.toLowerCase() === searchTerm.toLowerCase()
     );
     if (wordData) {
-      setResult(wordData.meaning);
+      setResult(`Definition: ${wordData.meaning}`);
     } else {
       setResult("Word not found in the dictionary.");
     }
