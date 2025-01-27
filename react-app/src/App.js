@@ -19,6 +19,7 @@ const App = () => {
     const wordData = dictionary.find(
       (entry) => entry.word.toLowerCase() === searchTerm.toLowerCase()
     );
+
     if (wordData) {
       setResult(wordData.meaning);
     } else {
@@ -27,7 +28,10 @@ const App = () => {
   };
 
   return (
-    <div className="dictionary-app" style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginTop: "50px" }}>
+    <div
+      className="dictionary-app"
+      style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginTop: "50px" }}
+    >
       <h1>Dictionary App</h1>
       <div style={{ margin: "20px 0" }}>
         <input
@@ -35,7 +39,13 @@ const App = () => {
           placeholder="Search for a word..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ padding: "10px", fontSize: "16px", width: "300px", borderRadius: "5px", border: "1px solid #ccc" }}
+          style={{
+            padding: "10px",
+            fontSize: "16px",
+            width: "300px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+          }}
         />
         <button
           onClick={handleSearch}
@@ -62,3 +72,4 @@ const App = () => {
 };
 
 export default App;
+
