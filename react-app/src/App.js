@@ -11,6 +11,11 @@ const App = () => {
   ];
 
   const handleSearch = () => {
+    if (!searchTerm.trim()) {
+      setResult("Please enter a search term.");
+      return;
+    }
+
     const wordData = dictionary.find(
       (entry) => entry.word.toLowerCase() === searchTerm.toLowerCase()
     );
@@ -30,13 +35,7 @@ const App = () => {
           placeholder="Search for a word..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            padding: "10px",
-            fontSize: "16px",
-            width: "300px",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-          }}
+          style={{ padding: "10px", fontSize: "16px", width: "300px", borderRadius: "5px", border: "1px solid #ccc" }}
         />
         <button
           onClick={handleSearch}
@@ -55,9 +54,8 @@ const App = () => {
         </button>
       </div>
       <div style={{ marginTop: "20px", fontSize: "18px", textAlign: "left", display: "inline-block" }}>
-        <p id="definition">
-          <strong>Definition:</strong> {result}
-        </p>
+        <p><strong>Definition:</strong></p>
+        <p>{result}</p>
       </div>
     </div>
   );
