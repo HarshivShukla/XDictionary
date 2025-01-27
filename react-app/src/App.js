@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="dictionary-app" style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginTop: "50px" }}>
-      <h1>XDictionary</h1>
+      <h1>Dictionary App</h1>
       <div style={{ margin: "20px 0" }}>
         <input
           type="text"
