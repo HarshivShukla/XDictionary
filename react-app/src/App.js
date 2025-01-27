@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState("");
 
   const dictionary = [
     { word: "React", meaning: "A JavaScript library for building user interfaces." },
@@ -15,7 +15,7 @@ const App = () => {
       (entry) => entry.word.toLowerCase() === searchTerm.toLowerCase()
     );
     if (wordData) {
-      setResult(`Definition: ${wordData.meaning}`);
+      setResult(wordData.meaning);
     } else {
       setResult("Word not found in the dictionary.");
     }
@@ -27,7 +27,7 @@ const App = () => {
       <div style={{ margin: "20px 0" }}>
         <input
           type="text"
-          placeholder="Enter a word..."
+          placeholder="Search for a word..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           style={{ padding: "10px", fontSize: "16px", width: "300px", borderRadius: "5px", border: "1px solid #ccc" }}
@@ -48,11 +48,10 @@ const App = () => {
           Search
         </button>
       </div>
-      {result !== null && (
-        <div style={{ marginTop: "20px", fontSize: "18px" }}>
-          <p>{result}</p>
-        </div>
-      )}
+      <div style={{ marginTop: "20px", fontSize: "18px", textAlign: "left", display: "inline-block" }}>
+        <p><strong>Definition:</strong></p>
+        <p>{result}</p>
+      </div>
     </div>
   );
 };
