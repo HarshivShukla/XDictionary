@@ -11,27 +11,21 @@ const App = () => {
   ];
 
   const handleSearch = () => {
-    if (!searchTerm.trim()) {
+    const trimmedTerm = searchTerm.trim();
+    if (!trimmedTerm) {
       setResult("Please enter a search term.");
       return;
     }
 
     const wordData = dictionary.find(
-      (entry) => entry.word.toLowerCase() === searchTerm.toLowerCase()
+      (entry) => entry.word.toLowerCase() === trimmedTerm.toLowerCase()
     );
 
-    if (wordData) {
-      setResult(wordData.meaning);
-    } else {
-      setResult("Word not found in the dictionary.");
-    }
+    setResult(wordData ? wordData.meaning : "Word not found in the dictionary.");
   };
 
   return (
-    <div
-      className="dictionary-app"
-      style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginTop: "50px" }}
-    >
+    <div className="dictionary-app" style={{ fontFamily: "Arial, sans-serif", textAlign: "center", marginTop: "50px" }}>
       <h1>Dictionary App</h1>
       <div style={{ margin: "20px 0" }}>
         <input
@@ -72,4 +66,3 @@ const App = () => {
 };
 
 export default App;
-
